@@ -1,4 +1,13 @@
-# HelpdeskFrontend
+# Projeto Helpdesk - Front-end
+## O Projeto
+Projeto de helpdesk de tecnicos e ordens de serviço simples, funcional e utilizável em pequena escala.
+Desenvolvido com Angular.
+
+### Status do desenvolvimento:
+- Inicio: 29/01/2023;
+
+
+## HelpdeskFrontend
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 12.0.3.
 
