@@ -5,6 +5,7 @@ Desenvolvido com Angular.
 
 ### Status do desenvolvimento:
 - Inicio: 29/01/2023;
+- Atualização: criação de componentes básicos: nav, home e header. - 01/02/2023;
 
 
 ## HelpdeskFrontend
