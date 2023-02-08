@@ -1,15 +1,17 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, Validators } from '@angular/forms';
+import { ActivatedRoute } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { Technician } from 'src/app/models/technician';
 import { TechnicianService } from 'src/app/services/technician.service';
 
+
 @Component({
-  selector: 'app-technician-create',
-  templateUrl: './technician-create.component.html',
-  styleUrls: ['./technician-create.component.css']
+  selector: 'app-technician-update',
+  templateUrl: './technician-update.component.html',
+  styleUrls: ['./technician-update.component.css']
 })
-export class TechnicianCreateComponent implements OnInit {
+export class TechnicianUpdateComponent implements OnInit {
 
   technician: Technician = {
     id: '',
@@ -26,13 +28,23 @@ export class TechnicianCreateComponent implements OnInit {
   email: FormControl = new FormControl(null, Validators.email);
   password: FormControl = new FormControl(null, Validators.minLength(3));
 
-  constructor(private service: TechnicianService, private toast: ToastrService) { }
+  constructor(private service: TechnicianService, private toast: ToastrService, private route: ActivatedRoute) { }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.technician.id = this.route.snapshot.paramMap.get('id');
+    this.findById();
+  }
 
-  create(): void{
-    this.service.create(this.technician).subscribe(() => {
-      this.toast.success('Técnico cadastrado com sucesso!', 'Cadastro')
+  findById():void{
+    this.service.findById(this.technician.id).subscribe(res => {
+      res.profiles = [];
+      this.technician = res;
+    });
+  }
+
+  update(): void{
+    this.service.update(this.technician).subscribe(() => {
+      this.toast.success('Informações alteradas com sucesso!', 'Update')
     }, ex => {
       console.log(ex);
       if(ex.error.erros){

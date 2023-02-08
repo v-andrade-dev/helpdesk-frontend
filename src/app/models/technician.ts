@@ -4,6 +4,6 @@ export interface Technician{
     cpf: string;
     email:string;
     password:string;
-    profile:string[];
+    profiles:string[];
     creationDate: any;
 }
