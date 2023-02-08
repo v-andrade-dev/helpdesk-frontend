@@ -22,3 +22,11 @@ h1{
     text-align: center;
     margin-bottom: 2rem;
 }
+
+.btn-edit{
+    color:rgb(75, 129, 209);
+}
+
+.btn-delete{
+    color: rgb(223, 49, 49);
+}
