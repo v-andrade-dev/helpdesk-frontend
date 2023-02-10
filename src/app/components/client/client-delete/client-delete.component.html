@@ -1,6 +1,6 @@
 <div class="container mat-elevation-z8">
     <form action="" class="form">
-        <h1 class="full-width">Deletar Técnico</h1>
+        <h1 class="full-width">Deletar Cliente</h1>
         <img class="full-width" src="assets/img/tec-create.svg" alt="Imagem de criação Técnico">
         
         <section class="profile">
@@ -11,25 +11,25 @@
 
         <mat-form-field class="full-width" appearance="legacy">
             <mat-label>Nome</mat-label>
-            <input [(ngModel)]="technician.name" name="technician" [disabled]="true" matInput >
+            <input [(ngModel)]="client.name" name="client" [disabled]="true" matInput >
             <mat-icon matSuffix>badge</mat-icon>
         </mat-form-field>
 
         <mat-form-field class="full-width" appearance="legacy">
             <mat-label>CPF</mat-label>
-            <input [(ngModel)]="technician.cpf" name="cpf" [disabled]="true" matInput >
+            <input [(ngModel)]="client.cpf" name="cpf" [disabled]="true" matInput >
             <mat-icon matSuffix>123</mat-icon>
         </mat-form-field>
 
         <mat-form-field class="full-width" appearance="legacy">
             <mat-label>E-mail</mat-label>
-            <input [(ngModel)]="technician.email" name="email" [disabled]="true" matInput >
+            <input [(ngModel)]="client.email" name="email" [disabled]="true" matInput >
             <mat-icon matSuffix>email</mat-icon>
         </mat-form-field>
 
         <mat-form-field class="full-width" appearance="legacy">
             <mat-label>Senha</mat-label>
-            <input [(ngModel)]="technician.password" name="password" type="password" [disabled]="true" matInput >
+            <input [(ngModel)]="client.password" name="password" type="password" [disabled]="true" matInput >
             <mat-icon matSuffix>password</mat-icon>
         </mat-form-field>
 
