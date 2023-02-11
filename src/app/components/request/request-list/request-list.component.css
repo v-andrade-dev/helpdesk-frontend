@@ -1,0 +1,38 @@
+.container{
+    width: 90%;
+    margin: auto;
+}
+
+table {
+    width: 100%;
+}
+
+mat-form-field {
+    font-size: 14px;
+    width: 100%;
+}
+
+.container button{
+    width: 100%;
+    margin-bottom: 1rem;
+}
+
+h1{
+    width: 100%;
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.btn-edit{
+    color:rgb(75, 129, 209);
+}
+
+.btn-visibility{
+    color: rgb(223, 49, 49);
+}
+
+mat-radio-group{
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 1rem;
+}
