@@ -2,6 +2,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
 import { Request } from 'src/app/models/request';
+import { RequestService } from 'src/app/services/request.service';
 
 @Component({
   selector: 'app-request-list',
@@ -10,21 +11,9 @@ import { Request } from 'src/app/models/request';
 })
 export class RequestListComponent implements OnInit {
 
-  ELEMENT_DATA : Request[] = [
-   {
-      id: 1,
-      open_date: '21/01/2023',
-      close_date: '11/02/2023',
-      priority: 'ALTA',
-      status: 'ANDAMENTO',
-      title: 'Chamado 1',
-      note: 'Teste chamado 1',
-      technician: 2,
-      client: 4,
-      tecName: 'Vinicius de Andrade',
-      clientName: 'Carol Souza',
-   }
-  ]
+  ELEMENT_DATA : Request[] = []
+  FILTERED_DATA : Request[] = []
+
 
   // importado do angular material - tabela com paginação 
   displayedColumns: string[] = ['id', 'title', 'clientName', 'tecName', 'open_date', 'priority', 'status', 'actions'];
@@ -32,15 +21,60 @@ export class RequestListComponent implements OnInit {
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
 
-  constructor() { }
+  constructor(private service: RequestService) { }
 
   ngOnInit(): void {
+    this.findAll();
   }
 
-  
+  findAll() : void{
+    this.service.findAll().subscribe(res => {
+      this.ELEMENT_DATA = res;
+      this.dataSource = new MatTableDataSource<Request>(this.ELEMENT_DATA);
+      this.dataSource.paginator = this.paginator;
+
+    })
+  }
+
   applyFilter(event: Event) {
     const filterValue = (event.target as HTMLInputElement).value;
     this.dataSource.filter = filterValue.trim().toLowerCase();
   }
 
+  statusReturn(status: any): string{
+    switch (status){
+      case 0:
+        return 'ABERTO'
+      case 1:
+        return 'EM ANDAMENTO'
+      case 2:
+        return 'FECHADO'
+      default:
+        return ''
+    }
+  } 
+
+  priorityReturn(priority: any): string{
+    switch (priority){
+      case 0:
+        return 'BAIXA'
+      case 1:
+        return 'MÉDIA'
+      case 2:
+        return 'ALTA'
+      default:
+        return ''
+    }
+  } 
+
+  orderByStatus(status: any):void {
+    let list: Request[] = [];
+    this.ELEMENT_DATA.forEach(element =>{
+      if(element.status == status){
+        list.push(element);
+      }})
+      this.FILTERED_DATA = list;
+      this.dataSource = new MatTableDataSource<Request>(this.FILTERED_DATA);
+      this.dataSource.paginator = this.paginator;
+  }
 }
