@@ -8,6 +8,9 @@ Desenvolvido com Angular.
 - Atualização: criação de componentes básicos: nav, home e header. - 01/02/2023;
 - Atualização: Autenticação de login, utilizando jwtHelper do angular cli. - 03/02/2023
 - Atualização: Finalizado componente que lista técnicos cadastrados, vindos do banco de dados. - 06/03/2023
+- Atualização: Finalizado CRUD completo da entidade Técnico. - 10/02/2023;
+- Atualização: Finalizado CRUD completo da entidade Cliente, utilizando CRUD de técnicos como base. - 10/02/2023;
+- Atualização: Implementação do componente de Chamados, finalizado lista de chamados, carregando informações do banco. - 14/02/2023;
 
 
 
