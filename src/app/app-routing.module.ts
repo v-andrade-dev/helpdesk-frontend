@@ -10,6 +10,7 @@ import { LoginComponent } from './components/login/login.component';
 import { NavComponent } from './components/nav/nav.component';
 import { RequestCreateComponent } from './components/request/request-create/request-create.component';
 import { RequestListComponent } from './components/request/request-list/request-list.component';
+import { RequestUpdateComponent } from './components/request/request-update/request-update.component';
 import { TechnicianCreateComponent } from './components/technician/technician-create/technician-create.component';
 import { TechnicianDeleteComponent } from './components/technician/technician-delete/technician-delete.component';
 import { TechnicianListComponent } from './components/technician/technician-list/technician-list.component';
@@ -32,7 +33,8 @@ const routes: Routes = [
       {path: 'client/delete/:id', component: ClientDeleteComponent},
 
       {path:'request', component: RequestListComponent},
-      {path: 'request/create', component: RequestCreateComponent}
+      {path: 'request/create', component: RequestCreateComponent},
+      {path: 'request/update/:id', component: RequestUpdateComponent}
     ]
   }
 ];

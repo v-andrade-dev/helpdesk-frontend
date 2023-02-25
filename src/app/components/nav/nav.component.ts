@@ -13,7 +13,7 @@ export class NavComponent implements OnInit {
   constructor(private router: Router, private authService: AuthService, private toast: ToastrService) { }
 
   ngOnInit(): void {
-    this.router.navigate(['request/create'])
+    this.router.navigate(['request/update/1'])
   }
 
   logout(){
