@@ -11,11 +11,19 @@ export class RequestService {
 
   constructor(private http: HttpClient) { }
 
+  findById(id: any): Observable<Request>{
+    return this.http.get<Request>(`${API_CONFIG.baseUrl}/request/${id}`)
+  }
+
   findAll() : Observable<Request[]>{
     return this.http.get<Request[]>(`${API_CONFIG.baseUrl}/request`)
   }
 
   create(request: Request): Observable<Request>{
     return this.http.post<Request>(`${API_CONFIG.baseUrl}/request`, request)
+  }
+
+  update(request: Request): Observable<Request>{
+    return this.http.put<Request>(`${API_CONFIG.baseUrl}/request/${request.id}`, request)
   }
 }
