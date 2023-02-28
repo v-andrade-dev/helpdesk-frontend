@@ -93,7 +93,7 @@ import { RequestReadComponent } from './components/request/request-read/request-
     MatListModule,
     MatCardModule,
     ToastrModule.forRoot({
-      timeOut: 4000,
+      timeOut: 5000,
       closeButton: true,
       progressBar: true
     }),
