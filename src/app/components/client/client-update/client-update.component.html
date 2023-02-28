@@ -3,12 +3,6 @@
         <h1 class="full-width">Atualizar Cliente</h1>
         <img class="full-width" src="assets/img/tec-create.svg" alt="Imagem de criação Técnico">
         
-        <section class="profile">
-            <mat-checkbox (click)="addProfile(0)" class="checkbox" color="primary">Admin</mat-checkbox>
-            <mat-checkbox (click)="addProfile(1)" class="checkbox" color="primary">Cliente</mat-checkbox>
-            <mat-checkbox (click)="addProfile(2)" class="checkbox" [checked]="true" color="primary">Técnico</mat-checkbox>
-        </section>
-
         <mat-form-field class="full-width" appearance="legacy">
             <mat-label>Nome</mat-label>
             <input [(ngModel)]="client.name" name="client" 

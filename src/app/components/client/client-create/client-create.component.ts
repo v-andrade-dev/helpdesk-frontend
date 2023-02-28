@@ -32,7 +32,7 @@ export class ClientCreateComponent implements OnInit {
 
   create(): void{
     this.service.create(this.client).subscribe(() => {
-      this.toast.success('Técnico cadastrado com sucesso!', 'Cadastro')
+      this.toast.success('Cliente cadastrado com sucesso!', 'Cadastro')
     }, ex => {
       console.log(ex);
       if(ex.error.erros){
@@ -45,16 +45,6 @@ export class ClientCreateComponent implements OnInit {
     })
   }
 
-  addProfile(profile:any): void{
-
-    if(this.client.profiles.includes(profile)){
-      this.client.profiles.splice(this.client.profiles.indexOf(profile), 1);
-    }else{
-      this.client.profiles.push(profile);
-    }    
-    console.log(this.client.profiles);
-    
-  }
 
   validateFields(): boolean{
     return this.name.valid && this.cpf.valid && this.email.valid && this.password.valid;

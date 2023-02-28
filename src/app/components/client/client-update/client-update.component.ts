@@ -57,17 +57,6 @@ export class ClientUpdateComponent implements OnInit {
     })
   }
 
-  addProfile(profile:any): void{
-
-    if(this.client.profiles.includes(profile)){
-      this.client.profiles.splice(this.client.profiles.indexOf(profile), 1);
-    }else{
-      this.client.profiles.push(profile);
-    }    
-    console.log(this.client.profiles);
-    
-  }
-
   validateFields(): boolean{
     return this.name.valid && this.cpf.valid && this.email.valid && this.password.valid;
   }
