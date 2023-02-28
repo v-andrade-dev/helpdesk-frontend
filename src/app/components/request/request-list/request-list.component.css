@@ -7,9 +7,14 @@ table {
     width: 100%;
 }
 
-mat-form-field {
+.filter {
     font-size: 14px;
-    width: 100%;
+    width: 50%;
+}
+
+.orderBy{
+    width: 20%;
+    margin-left: 1rem;
 }
 
 .container button{
@@ -29,10 +34,4 @@ h1{
 
 .btn-visibility{
     color: rgb(223, 49, 49);
-}
-
-mat-radio-group{
-    display: flex;
-    justify-content: space-around;
-    margin-bottom: 1rem;
 }

@@ -46,9 +46,9 @@ export class RequestListComponent implements OnInit {
       case 0:
         return 'ABERTO'
       case 1:
-        return 'EM ANDAMENTO'
+        return 'ANDAMENTO'
       case 2:
-        return 'FECHADO'
+        return 'ENCERRADO'
       default:
         return ''
     }
@@ -77,4 +77,16 @@ export class RequestListComponent implements OnInit {
       this.dataSource = new MatTableDataSource<Request>(this.FILTERED_DATA);
       this.dataSource.paginator = this.paginator;
   }
+
+  orderByPriority(priority: any):void {
+    let list: Request[] = [];
+    this.ELEMENT_DATA.forEach(element =>{
+      if(element.priority == priority){
+        list.push(element);
+      }})
+      this.FILTERED_DATA = list;
+      this.dataSource = new MatTableDataSource<Request>(this.FILTERED_DATA);
+      this.dataSource.paginator = this.paginator;
+  }
+
 }
