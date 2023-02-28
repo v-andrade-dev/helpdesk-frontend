@@ -14,7 +14,7 @@ export class TechnicianListComponent implements OnInit {
   ELEMENT_DATA : Technician[] = []
 
   // importado do angular material - tabela com paginação 
-  displayedColumns: string[] = ['id', 'name', 'cpf', 'email', 'actions'];
+  displayedColumns: string[] = ['id', 'name', 'cpf', 'email', 'actions', 'admin'];
   dataSource = new MatTableDataSource<Technician>(this.ELEMENT_DATA);
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
