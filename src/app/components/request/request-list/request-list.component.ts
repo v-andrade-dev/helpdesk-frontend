@@ -16,7 +16,7 @@ export class RequestListComponent implements OnInit {
 
 
   // importado do angular material - tabela com paginação 
-  displayedColumns: string[] = ['id', 'title', 'clientName', 'tecName', 'open_date', 'priority', 'status', 'actions'];
+  displayedColumns: string[] = ['id', 'title', 'clientName', 'tecName', 'open_date', 'priority', 'status', 'close_date', 'actions'];
   dataSource = new MatTableDataSource<Request>(this.ELEMENT_DATA);
 
   @ViewChild(MatPaginator) paginator: MatPaginator;

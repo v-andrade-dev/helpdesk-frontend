@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, Validators } from '@angular/forms';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { Technician } from 'src/app/models/technician';
 import { TechnicianService } from 'src/app/services/technician.service';
@@ -21,7 +21,7 @@ export class TechnicianDeleteComponent implements OnInit {
     creationDate: ''
   }
 
-  constructor(private service: TechnicianService, private toast: ToastrService, private route: ActivatedRoute) { }
+  constructor(private service: TechnicianService, private toast: ToastrService, private route: ActivatedRoute, private router: Router) { }
 
   ngOnInit(): void {
     this.technician.id = this.route.snapshot.paramMap.get('id');
@@ -37,7 +37,8 @@ export class TechnicianDeleteComponent implements OnInit {
 
   delete(): void{
     this.service.delete(this.technician.id).subscribe(() => {
-      this.toast.success('Técnico deletado com sucesso!', 'Delete')
+      this.toast.success('Técnico deletado com sucesso!', 'Delete');
+      this.router.navigate(['technician']);
     }, ex => {
       console.log(ex);
       if(ex.error.erros){

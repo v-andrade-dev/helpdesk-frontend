@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, Validators } from '@angular/forms';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { Client } from 'src/app/models/client';
 import { ClientService } from 'src/app/services/client.service';
@@ -28,7 +28,7 @@ export class ClientUpdateComponent implements OnInit {
   email: FormControl = new FormControl(null, Validators.email);
   password: FormControl = new FormControl(null, Validators.minLength(3));
 
-  constructor(private service: ClientService, private toast: ToastrService, private route: ActivatedRoute) { }
+  constructor(private service: ClientService, private toast: ToastrService, private route: ActivatedRoute, private router: Router) { }
 
   ngOnInit(): void {
     this.client.id = this.route.snapshot.paramMap.get('id');
@@ -44,7 +44,8 @@ export class ClientUpdateComponent implements OnInit {
 
   update(): void{
     this.service.update(this.client).subscribe(() => {
-      this.toast.success('Informações alteradas com sucesso!', 'Update')
+      this.toast.success('Informações alteradas com sucesso!', 'Update');
+      this.router.navigate(['client']);
     }, ex => {
       console.log(ex);
       if(ex.error.erros){

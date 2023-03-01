@@ -38,5 +38,12 @@ export class TechnicianListComponent implements OnInit {
     this.dataSource.filter = filterValue.trim().toLowerCase();
   }
 
+  adminProfile(profile: any): string{
+    if(profile == 'ADMIN'){
+      return profile;
+    }else{
+      return '';
+    }
+  }
 }
 

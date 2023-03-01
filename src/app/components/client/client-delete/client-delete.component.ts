@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, Validators } from '@angular/forms';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { Client } from 'src/app/models/client';
 import { ClientService } from 'src/app/services/client.service';
@@ -21,7 +21,7 @@ export class ClientDeleteComponent implements OnInit {
     creationDate: ''
   }
 
-  constructor(private service: ClientService, private toast: ToastrService, private route: ActivatedRoute) { }
+  constructor(private service: ClientService, private toast: ToastrService, private route: ActivatedRoute, private router: Router) { }
 
   ngOnInit(): void {
     this.client.id = this.route.snapshot.paramMap.get('id');
@@ -37,7 +37,8 @@ export class ClientDeleteComponent implements OnInit {
 
   delete(): void{
     this.service.delete(this.client.id).subscribe(() => {
-      this.toast.success('Cliente deletado com sucesso!', 'Delete')
+      this.toast.success('Cliente deletado com sucesso!', 'Delete');
+      this.router.navigate(['client']);
     }, ex => {
       console.log(ex);
       if(ex.error.erros){
