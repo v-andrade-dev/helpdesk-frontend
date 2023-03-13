@@ -1,7 +1,12 @@
 # Projeto Helpdesk - Front-end
 ## O Projeto
 Projeto de helpdesk de tecnicos e ordens de serviço simples, funcional e utilizável em pequena escala.
-Desenvolvido com Angular.
+Desenvolvido com Angular. 
+DEPLOY: https://helpdesk-frontend-nine.vercel.app/login
+Perfil teste: 
+login: teste@mail.com
+senha: 123456
+
 
 ### Status do desenvolvimento:
 - Inicio: 29/01/2023;
